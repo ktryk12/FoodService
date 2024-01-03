@@ -15,7 +15,7 @@ namespace FoodService.DAL
             _context = context;
         }
         public async Task<SalesItem> CreateSalesItemAsync(SalesItem salesItem)
-        {
+        {|
             _context.SalesItems.Add(salesItem);
             await _context.SaveChangesAsync();
             return salesItem;
@@ -29,11 +29,12 @@ namespace FoodService.DAL
 
         public async Task<SalesItem> GetByIdAsync(int id)
         {
-            return await _context.SalesItems.FindAsync(id);
+            return await _context.SalesItems.FirstOrDefaultAsync(si => si.Id == id);
         }
+
         public async Task<SalesItem> GetSalesItemByOrderlineIdAsync(int orderlineId)
         {
-            // Antager at du har en DbContext kaldet _context
+            
             return await _context.SalesItems
                                  .FirstOrDefaultAsync(s => s.Orderlines.Any(o => o.Id == orderlineId));
         }
