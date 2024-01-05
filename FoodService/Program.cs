@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using System.ComponentModel.DataAnnotations;
-using FoodService.BusinessLogic.PriceService;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
