@@ -11,7 +11,7 @@ namespace FoodService.Modellayer
     {
         Candystor,
         Foodstand,
-        Resturant /
+        Resturant 
     }
 
 
