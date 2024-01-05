@@ -11,6 +11,7 @@ namespace FoodService.Dto_sConverter
             {
                 Name = dto.Name,
                 ProductNumber = dto.ProductNumber,
+                BasePrice = dto.BasePrice,
                 Category = dto.Category,
                 ImageUrl = dto.ImageUrl,
                 IsActive = dto.IsActive,
@@ -33,6 +34,7 @@ namespace FoodService.Dto_sConverter
                 Id = entity.Id,
                 Name = entity.Name,
                 ProductNumber = entity.ProductNumber,
+                BasePrice = entity.BasePrice,
                 Category = entity.Category,
                 ImageUrl = entity.ImageUrl,
                 // Udelad ImageFile, da det ikke er en del af entiteten

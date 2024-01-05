@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FoodService.Modellayer
 {
 
-    [Table("SalesItem")]  // Specifies the name of the database table that this class is mapped to.
+    [Table("SalesItem")]  
     public class SalesItem
     {
         [Key]  // This is the primary key for the database table.

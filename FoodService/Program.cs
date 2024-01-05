@@ -110,8 +110,7 @@ builder.Services.AddScoped<IIngredientOrderlineService, IngredientOrderlineServi
 builder.Services.AddScoped<ISalesItemCompositionService, SalesItemCompositionService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
 builder.Services.AddScoped<ICustomerGroupService, CustomerGroupService>();
-builder.Services.AddScoped<IPricingStrategyFactory, PricingStrategyFactory>();
-builder.Services.AddScoped<IPricingService, PricingService>();
+
 
 
 

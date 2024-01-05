@@ -38,7 +38,7 @@ namespace FoodService.BusinessLogic
             return compositions.Select(c => new SalesItemCompositionDto
             {
                 ParentItemId = c.ParentItemId,
-                ParentItemName = c.ParentItem?.Name, // Navn på forældreelementet, hvis det er nødvendigt
+                ParentItemName = c.ParentItem?.Name, // Navn på forældreelementet, 
                 ChildItemId = c.ChildItemId,
                 ChildItemName = c.ChildItem?.Name // Navn på barnelementet
             }).ToList();
@@ -74,7 +74,7 @@ namespace FoodService.BusinessLogic
             var parentItem = await _salesItemData.GetByIdAsync(parentItemId);
             if (parentItem == null)
             {
-                // Håndter tilfælde, hvor parent item ikke findes
+                
                 return null;
             }
 
@@ -84,8 +84,7 @@ namespace FoodService.BusinessLogic
             // Kontrollerer, om der findes nogen child items
             if (!compositions.Any())
             {
-                // Hvis der ikke er child items, kan du vælge at returnere data kun for parent item
-                // Eller returnere null, afhængigt af din applikations logik
+                 
             }
 
             // Konverterer til DTO

@@ -34,7 +34,7 @@ namespace FoodService.BusinessLogic
             }
             else
             {
-                ingredient.ImageUrl = "standardImageUrl.jpg"; // Standardbillede URL
+                ingredient.ImageUrl = "standardImageUrl.jpg"; 
             }
 
             var createdIngredient = await _ingredientData.CreateIngredientAsync(ingredient);

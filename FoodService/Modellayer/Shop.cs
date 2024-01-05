@@ -11,8 +11,7 @@ namespace FoodService.Modellayer
     {
         Candystor,
         Foodstand,
-        Resturant // Hvis en shop både er online og fysisk
-        // Du kan tilføje flere typer efter behov
+        Resturant /
     }
 
 
@@ -27,7 +26,7 @@ namespace FoodService.Modellayer
         public string Name { get; set; } = null!;
 
         [Required]
-        [MaxLength(500)] // Depending on the length of the location data you're storing.
+        [MaxLength(500)] 
         public string Location { get; set; } = null!;
 
         public ShopType Type { get; set; } // Using the enum

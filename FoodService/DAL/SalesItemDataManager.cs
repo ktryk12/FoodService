@@ -15,7 +15,7 @@ namespace FoodService.DAL
             _context = context;
         }
         public async Task<SalesItem> CreateSalesItemAsync(SalesItem salesItem)
-        {|
+        {
             _context.SalesItems.Add(salesItem);
             await _context.SaveChangesAsync();
             return salesItem;

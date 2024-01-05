@@ -15,7 +15,7 @@ namespace FoodService.Modellayer
         public int ChildItemId { get; set; }
         public virtual SalesItem ChildItem { get; set; }
 
-        // Du kan tilføje yderligere egenskaber her, hvis nødvendigt
+        
     }
 
 

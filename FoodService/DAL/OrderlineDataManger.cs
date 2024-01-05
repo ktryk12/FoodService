@@ -56,10 +56,7 @@ namespace FoodService.DAL
         {
             var existingOrderline = await _context.Orderlines.FindAsync(orderline.Id);
             if (existingOrderline == null) return false;
-
-            // Opdater felterne i existingOrderline med værdier fra orderline
-            // For eksempel: existingOrderline.Quantity = orderline.Quantity;
-
+                   
             await _context.SaveChangesAsync();
             return true;
         }
