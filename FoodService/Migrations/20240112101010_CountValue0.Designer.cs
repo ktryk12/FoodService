@@ -4,6 +4,7 @@ using FoodService.Modellayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodService.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    partial class ServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20240112101010_CountValue0")]
+    partial class CountValue0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,13 +173,13 @@ namespace FoodService.Migrations
                         .HasColumnType("int")
                         .HasDefaultValueSql("((0))");
 
+                    b.Property<bool>("IsStandard")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Max")
                         .HasColumnType("int");
 
                     b.Property<int>("Min")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StandardCount")
                         .HasColumnType("int");
 
                     b.HasKey("SalesItemId", "IngredientId")

@@ -14,7 +14,7 @@ namespace FoodService.Modellayer
         public int Min { get; set; }
         public int Max { get; set; }
         public int Count { get; set; } = 0;
-
+        public int StandardCount { get; set; } 
         public Ingredient Ingredient { get; set; }
         public SalesItem SalesItem { get; set; }
     }

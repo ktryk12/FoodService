@@ -14,6 +14,7 @@ namespace FoodService.Dto_sConverter
                 Count = dto.Count,
                 Max = dto.Max,
                 Min = dto.Min,
+                StandardCount = dto.StandardCount,
             };
         }
         public static IngredientSalesItemDto ToDto(IngredientSalesItem entity)
@@ -25,6 +26,7 @@ namespace FoodService.Dto_sConverter
                 Count = entity.Count,
                 Max = entity.Max,
                 Min = entity.Min,
+                StandardCount = entity.StandardCount,
 
             };
         }

@@ -16,8 +16,7 @@ namespace FoodService.DTOs
 
         public int Count { get; set; }
 
-
-
+        public int StandardCount { get; set; }
     }
 }
 

@@ -8,6 +8,7 @@ namespace FoodService.DTOs
         public int Min { get; set; }
         public int Max { get; set; }
         public int Count { get; set; }
+        public int StandardCount { get; set; }
 
         // Denne egenskab indeholder detaljerede oplysninger om ingrediensen
         public IngredientDto Ingredient { get; set; }

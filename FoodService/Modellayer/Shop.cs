@@ -11,7 +11,7 @@ namespace FoodService.Modellayer
     {
         Candystor,
         Foodstand,
-        Resturant 
+        Restaurant 
     }
 
 
@@ -28,6 +28,10 @@ namespace FoodService.Modellayer
         [Required]
         [MaxLength(500)] 
         public string Location { get; set; } = null!;
+        [Required]
+        [MaxLength(500)]
+        [Column(TypeName = "nvarchar(500)")]
+        public string ImageUrl { get; set; }
 
         public ShopType Type { get; set; } // Using the enum
 

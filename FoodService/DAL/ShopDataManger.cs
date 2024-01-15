@@ -110,6 +110,19 @@ namespace FoodService.DAL
         {
             return await _context.Shops.ToListAsync();
         }
+        public async Task<List<int>> GetSalesItemIdsByShopIdAsync(int shopId)
+        {
+            var shop = await _context.Shops
+                                     .Include(s => s.SalesItems)
+                                     .FirstOrDefaultAsync(s => s.Id == shopId);
+
+            if (shop == null)
+            {
+                return new List<int>(); // Returner en tom liste, hvis shop ikke findes
+            }
+
+            return shop.SalesItems.Select(si => si.Id).ToList();
+        }
 
     }
 }

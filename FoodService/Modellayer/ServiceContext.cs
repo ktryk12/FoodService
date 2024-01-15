@@ -130,7 +130,7 @@ namespace FoodService.Modellayer
                 entity.Property(e => e.Max).IsRequired();
                 entity.Property(e => e.Count)
                     .IsRequired()
-                    .HasDefaultValueSql("((1))");
+                    .HasDefaultValueSql("((0))");
                 // Oprettelse af mange-til-mange relation mellem Ingrediens og IngredientSalesItem
                 entity.HasOne(d => d.Ingredient)
         .WithMany(p => p.IngredientSalesItems)
@@ -239,15 +239,16 @@ namespace FoodService.Modellayer
                 entity.Property(e => e.Id).HasColumnName("ID")
                 .ValueGeneratedOnAdd();
                 entity.Property(e => e.Location)
-                    .HasMaxLength(20)
+                    .HasMaxLength(40)
                     .IsUnicode(false);
                 entity.Property(e => e.Name)
-                    .HasMaxLength(20)
+                    .HasMaxLength(40)
                     .IsUnicode(false);
                 entity.Property(e => e.Type)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
+                entity.Property(e => e.ImageUrl)
+                     .HasMaxLength(500);
                 // Oprettelse af mange-til-mange relation mellem Shop og SalesItem
                 entity.HasMany(d => d.SalesItems)
                 .WithMany(p => p.Shops)

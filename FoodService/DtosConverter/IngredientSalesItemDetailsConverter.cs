@@ -14,6 +14,7 @@ namespace FoodService.DtosConverter
                 Min = ingredientSalesItem.Min,
                 Max = ingredientSalesItem.Max,
                 Count = ingredientSalesItem.Count,
+                StandardCount = ingredientSalesItem.StandardCount,
                 Ingredient = new IngredientDto
                 {
                     Id = ingredient.Id,

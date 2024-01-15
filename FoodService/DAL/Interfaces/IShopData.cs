@@ -12,7 +12,7 @@ namespace FoodService.DAL.Interfaces
         Task<bool> AddSalesItemToShopAsync(int shopId, SalesItem item);
         Task<bool> RemoveSalesItemFromShopAsync(int shopId, int salesItemId);
         Task<IEnumerable<Shop>> GetAllShopsAsync();
-
+        Task<List<int>> GetSalesItemIdsByShopIdAsync(int shopId);
 
 
 

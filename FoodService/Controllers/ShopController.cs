@@ -18,13 +18,27 @@ namespace FoodService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateShop([FromBody] ShopDto shopDto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateShop([FromForm] CreateShopDto createShopDto)
         {
-            var createdShop = await _shopService.CreateShopAsync(shopDto);
-            if (createdShop != null)
-                return CreatedAtAction(nameof(GetShopById), new { id = createdShop.Id }, createdShop);
-            return BadRequest("Failed to create shop.");
+            try
+            {
+                var createdShop = await _shopService.CreateShopAsync(createShopDto);
+                if (createdShop == null)
+                {
+                    return BadRequest("Unable to create shop");
+                }
+
+                // Returnerer den oprettede shop med den nye Id
+                return Ok(createdShop);
+            }
+            catch (Exception ex)
+            {
+                // Log fejlen
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShopById(int id)
@@ -77,5 +91,26 @@ namespace FoodService.Controllers
                 return Ok("Sales item removed from shop successfully.");
             return NotFound($"Sales item with ID {salesItemId} not found in shop.");
         }
+        // GET: shop/{shopId}/salesitems
+        [HttpGet("{shopId}/salesitems")]
+        public async Task<IActionResult> GetSalesItemIdsByShopId(int shopId)
+        {
+            try
+            {
+                var salesItemIds = await _shopService.GetSalesItemIdsByShopIdAsync(shopId);
+                if (salesItemIds == null || salesItemIds.Count == 0)
+                {
+                    return NotFound($"Ingen SalesItems fundet for ShopId: {shopId}.");
+                }
+
+                return Ok(salesItemIds);
+            }
+            catch (Exception ex)
+            {
+                // Log exception details here
+                return StatusCode(500, "Der opstod en intern serverfejl.");
+            }
+        }
+
     }
 }

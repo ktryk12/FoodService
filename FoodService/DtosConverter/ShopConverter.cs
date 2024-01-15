@@ -1,4 +1,5 @@
 ﻿using FoodService.DTOs;
+using FoodService.DTOsConverter;
 using FoodService.Modellayer;
 
 namespace FoodService.Dto_sConverter
@@ -12,19 +13,26 @@ namespace FoodService.Dto_sConverter
                 Id = dto.Id,
                 Name = dto.Name,
                 Location = dto.Location,
-                Type = dto.Type
+                Type = ShopTypeConverter.ConvertToEntity(dto.Type),
+                ImageUrl = dto.ImageUrl
                 // Andre konverteringer
             };
         }
 
         public static ShopDto ToDto(Shop entity)
         {
+            if (entity == null)
+            {
+                // Handle null case, perhaps return null or throw a more informative exception
+                return null; // or throw new ArgumentNullException(nameof(entity));
+            }
             return new ShopDto
             {
                 Id = entity.Id,
                 Name = entity.Name,
                 Location = entity.Location,
-                Type = entity.Type
+                Type = ShopTypeConverter.ConvertToDto(entity.Type),
+                ImageUrl = entity.ImageUrl
                 // Andre konverteringer
             };
         }
